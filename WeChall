@@ -1,0 +1,3 @@
+
+/^wechall4?\.(?:tiff|png|jpg|bmp|gif)$/
+/(wechall4?)\.(?:tiff|png|jpg|bmp|gif)/
