@@ -1,0 +1,67 @@
+Web Application:
+
+    Burp Suite262 - An integrated platform for performing security testing of web applications
+
+    Sqlmap110 - An open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers. How-to Tutorial90
+
+    SQLNinja86 - Sqlninja is a tool targeted to exploit SQL Injection vulnerabilities on a web application that uses Microsoft SQL Server as its back-end. How-to Tutorial54
+
+    Hackbar137- This Firefox toolbar will help you in testing sql injections, XSS holes and site security. How-to Tutorial140
+
+    Knock190 - Enumerates subdomains on a target domain through a wordlist. How-to Tutorial81
+
+    The Zed Attack Proxy (ZAP) By OWASP66
+
+    Ratproxy By Google165 - How-to Tutorial64
+
+    OWASP SKANDA – SSRF Exploitation Framework233
+
+    man ascii64 - on most unices gives you the ASCII table with decimal, octal and hex codes for each character (thanks @justinsteven)
+
+    DNS Discovery165 - A multithreaded subdomain bruteforcer. (thanks @Nahamsec)
+
+    IronWASP99 - free & open source security scanner (thanks @cmaruti)
+
+    WebSlayer290 - "One of the best free tools available" - (thanks @mazen160 )
+
+    Wfuzz95 - (Thanks @mazen160)
+
+    SubBrute91 - subdomain bruteforcer (Thanks @geekspeed)
+
+    The SecList Project69 - collection of multiple lists using during security assessments (Thanks @geekspeed)
+
+    NCrack20 & Hydra17/Medusa11 - password bruteforcing (Thanks @jhaddix)
+
+    XXE Recursive Download135 - This tool exploits XXE to retrieve files from a target server. It obtains directory listings and recursively downloads file contents (Thanks @Nahamsec)
+
+    SQLiPY52 - SQLiPy is a Python plugin for Burp Suite that integrates SQLMap using the SQLMap API. Guide for this tool50. (Thanks @jhaddix)
+
+    Scans.io169 - use the latest scans.io data to find additional hosts that may be in scope for those *.target.com targets (Thanks @jstnkndy)
+
+    httpscreenshot98 - Fantastic tool built by @jstnkndy and breenmachine. Quickly visually identify targets on internal or external targets. (thanks @jstnkndy)
+
+Mobile:
+
+    Dex2jar5 - Useful to convert dex files into jar to decompile the application. How-to tutorial9
+
+    Appium49 - Appium is an open-source tool for automating native, mobile web, and hybrid applications on iOS and Android platforms. How-to Tutorial
+
+    iNalyzer54 - iOS Penetration testing framework
+
+    Apktool29 - reverse engineering Android apk files (Thanks @planetzuda)
+
+    NinjaDroid42 - Ninja Reverse Engineering on Android APK packages (Thanks @geekspeed)
+
+Other:
+
+    MITMproxy30 - How-to tutorial31
+    Mona.py44 - for Windows Exploiting 
+    metasm_shell.rb & nasm_shell.rb - Both found in the tools folder in Metasploit4 
+    GoBuster61 - dirbusting software for directory bruteforcing 
+    R Project for Statistical Computing4 - statistical computing and graphics, runs on UNIX, Win and MacOS. Check out the dds.ec package 
+    Apache Spark5 - large-scale data processing for statistical analysis and better visuals, for bigger data sets that R can't handle
+    PhantomJS12 - headless WebKit scriptable with the javascript API 
+    Hackvertor30
+    JSBeautifier27
+
+
