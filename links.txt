@@ -1,0 +1,7 @@
+OWASP Testing Guide:
+
+https://www.owasp.org/images/1/19/OTGv4.pdf
+
+OWASP Top Ten:
+
+https://www.owasp.org/images/7/72/OWASP_Top_10-2017_%28en%29.pdf.pdf
