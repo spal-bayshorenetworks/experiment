@@ -1,0 +1,15 @@
+Sample inputs for XSS:
+
+<script>alert(1);</script>
+<a href="test" onclick="javascript:alert(1);">test</a>
+
+<img src="test.png" onerror="javascript:alert(1);" />
+<img src="test.png" onload="javascript:alert(1);" />
+javascript:alert(1);
+data:text/javascript,alert(1);
+1')%3Balert('1
+1%27)%3balert(%271
+1') || alert('1
+1');alert(1);//
+
+

